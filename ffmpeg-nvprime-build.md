@@ -625,7 +625,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:/opt/in
   --bindir="$HOME/bin" \
   --extra-cflags="-I$HOME/bin/include" \
   --extra-ldflags="-L$HOME/bin/lib" \
-  --enable-cuda-sdk \
+  --enable-cuda-nvcc \
   --enable-cuvid \
   --enable-libnpp \
   --extra-cflags="-I/usr/local/cuda/include/" \
