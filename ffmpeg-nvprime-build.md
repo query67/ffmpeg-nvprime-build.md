@@ -507,11 +507,45 @@ Take note that [changes to the inclusion of third party headers](https://git.vid
 
 ```sh
 cd ~/ffmpeg_sources
-git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+git clone https://github.com/FFmpeg/nv-codec-headers
 cd nv-codec-headers
 make
 make install PREFIX="$HOME/ffmpeg_build"
 ```
+
+**Warning:** If you had installed the `ffnvcodec` headers elsewhere on your system, such as the default prefix, note that this will break your build if they're out of date. 
+
+For whatever reason (perhaps its' by design), the `./configure` script does not "reset" options passed to it but rather, updates them incrementally.
+
+For these who run into this issue in the future, here's the fix:
+
+Purge the ffmpeg directory:
+
+```sh
+cd ~/ffmpeg_sources && rm -fr FFmpeg
+```
+
+Then uninstall any older ffnvcodec header packages you may have in your system.
+Mine was in the default prefix. Handled it via:
+
+```sh
+cd ~/ffmpeg_sources
+git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+cd nv-codec-headers
+make
+sudo make uninstall
+```
+Then install it to the correct prefix as shown above:
+
+```sh
+cd ~/ffmpeg_sources
+git clone https://github.com/FFmpeg/nv-codec-headers
+cd nv-codec-headers
+make
+make install PREFIX="$HOME/ffmpeg_build"
+```
+
+And proceed. Related ticket: https://trac.ffmpeg.org/ticket/7782
 
 
 **Build a usable FFmpeg binary with the iMSDK:**
