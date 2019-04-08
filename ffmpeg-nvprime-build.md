@@ -682,7 +682,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:/opt/in
   --enable-libfdk-aac \
   --enable-libx265 \
   --enable-openssl \
-  --extra-libs="-lpthread -lm" \
+  --extra-libs="-lpthread -lm -lz" \
   --enable-nonfree 
 PATH="$HOME/bin:$PATH" make -j$(nproc) 
 make -j$(nproc) install 
