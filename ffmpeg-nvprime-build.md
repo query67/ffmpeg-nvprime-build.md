@@ -625,6 +625,7 @@ time make distclean
 cd ~/ffmpeg_sources
 git clone https://git.xiph.org/vorbis.git
 cd vorbis
+autoreconf -ivf
 ./configure --enable-static --prefix="$HOME/ffmpeg_build"
 time make -j$(nproc)
 time make -j$(nproc) install
