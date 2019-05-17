@@ -571,7 +571,7 @@ make -j$(nproc) distclean
 
 ```
 cd ~/ffmpeg_sources
-git clone http://git.videolan.org/git/x264.git -b stable
+git clone http://git.videolan.org/git/x264.git 
 cd x264/
 PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --enable-static --enable-shared
 PATH="$HOME/bin:$PATH" make -j$(nproc) VERBOSE=1
@@ -680,6 +680,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:/opt/in
   --cpu=native \
   --enable-opengl \
   --enable-libfdk-aac \
+  --enable-libx264 \
   --enable-libx265 \
   --enable-openssl \
   --extra-libs="-lpthread -lm -lz" \
