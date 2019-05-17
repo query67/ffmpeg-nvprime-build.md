@@ -623,9 +623,8 @@ time make distclean
 
 ```
 cd ~/ffmpeg_sources
-wget -c -v http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
-tar -xvf libvorbis-1.3.6.tar.xz
-cd libvorbis-1.3.6
+git clone https://git.xiph.org/vorbis.git
+cd vorbis
 ./configure --enable-static --prefix="$HOME/ffmpeg_build"
 time make -j$(nproc)
 time make -j$(nproc) install
